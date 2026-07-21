@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>石珊珊 Alice.S · VR艺术家推介版</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg-dark: #0a0e1a;
+    --bg-darker: #060810;
+    --gold: #c9a96e;
+    --gold-light: #e8d5a8;
+    --teal: #3dd6c4;
+    --warm-white: #f5f0e8;
+    --text-dim: #8a8a9a;
+    --text-mid: #b0b0c0;
+    --border-gold: rgba(201, 169, 110, 0.3);
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.08);
+  }
+
+  body {
+    font-family: 'Noto Sans SC', -apple-system, sans-serif;
+    background: var(--bg-darker);
+    color: var(--warm-white);
+    overflow-x: hidden;
+  }
+
+  .slide {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 80px;
+    overflow: hidden;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+
+  .slide-num {
+    display: none;
+    position: absolute;
+    bottom: 30px;
+    right: 40px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+  }
+
+  .slide-label {
+    position: absolute;
+    top: 40px;
+    left: 80px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    color: var(--gold);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  /* ========== SLIDE 1: COVER ========== */
+  .cover {
+    background: linear-gradient(135deg, #060810 0%, #0a0e1a 40%, #0d1525 100%);
+    flex-direction: column;
+  }
+  .cover::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('ppt-images/alice_cover_wide.png') top center/cover no-repeat;
+    opacity: 0.25;
+    z-index: 0;
+  }
+  .cover::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(180deg, rgba(6,8,16,0.6) 0%, rgba(6,8,16,0.3) 50%, rgba(6,8,16,0.9) 100%);
+    z-index: 1;
+  }
+  .cover-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .cover-tag {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: var(--gold);
+    letter-spacing: 8px;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+  }
+  .cover-name {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 72px;
+    font-weight: 900;
+    color: var(--warm-white);
+    letter-spacing: 8px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 60px rgba(201,169,110,0.3);
+  }
+  .cover-name-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 6px;
+    margin-bottom: 40px;
+  }
+  .cover-titles {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+  .cover-title-item {
+    font-size: 14px;
+    color: var(--text-mid);
+    letter-spacing: 3px;
+    padding: 8px 20px;
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+  }
+  .cover-line {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto 30px;
+  }
+  .cover-desc {
+    font-size: 15px;
+    color: var(--text-dim);
+    letter-spacing: 4px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 2;
+  }
+
+  /* ========== SLIDE 2: ABOUT ========== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1100px;
+    width: 100%;
+    z-index: 2;
+  }
+  .about-left h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 42px;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+  .about-left .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 30px;
+  }
+  .about-left p {
+    font-size: 15px;
+    line-height: 2;
+    color: var(--text-mid);
+    margin-bottom: 20px;
+  }
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .info-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-left: 2px solid var(--gold);
+    padding: 20px 25px;
+    border-radius: 4px;
+  }
+  .info-card .label {
+    font-size: 12px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .info-card .value {
+    font-size: 15px;
+    color: var(--warm-white);
+    line-height: 1.6;
+  }
+  .info-card .source {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+  .info-card .source a {
+    color: var(--teal);
+    text-decoration: none;
+    opacity: 0.7;
+  }
+  .info-card .source a:hover {
+    opacity: 1;
+  }
+
+  /* ========== SLIDE 3: POSITIONING ========== */
+  .positioning {
+    background: linear-gradient(180deg, var(--bg-darker) 0%, #0a0e1a 100%);
+  }
+  .positioning-content {
+    max-width: 1000px;
+    text-align: center;
+    z-index: 2;
+  }
+  .positioning-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+  .positioning-content .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 50px;
+  }
+  .position-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 50px;
+  }
+  .position-tag {
+    padding: 14px 28px;
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+    font-size: 15px;
+    color: var(--warm-white);
+    background: rgba(201,169,110,0.06);
+    letter-spacing: 2px;
+  }
+  .position-quote {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    border-top: 1px solid var(--border-gold);
+    border-bottom: 1px solid var(--border-gold);
+  }
+  .position-quote p {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 18px;
+    line-height: 2;
+    color: var(--text-mid);
+    font-style: italic;
+  }
+  .position-quote .source {
+    font-size: 13px;
+    color: var(--gold);
+    margin-top: 15px;
+    letter-spacing: 2px;
+  }
+  .position-quote .source a {
+    color: var(--teal);
+    text-decoration: none;
+    opacity: 0.7;
+  }
+
+  /* ========== SLIDE 4: MEDIA AUTHORITY ========== */
+  .media-authority {
+    background: var(--bg-darker);
+  }
+  .media-authority-content {
+    max-width: 1200px;
+    width: 100%;
+    z-index: 2;
+  }
+  .media-authority-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .media-authority-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .media-item {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    padding: 24px 28px;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .media-item:hover {
+    border-color: var(--border-gold);
+    background: rgba(201,169,110,0.05);
+  }
+  .media-item .media-source {
+    display: inline-block;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    padding: 3px 10px;
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+    margin-bottom: 10px;
+  }
+  .media-item .media-title {
+    font-size: 16px;
+    color: var(--warm-white);
+    font-weight: 500;
+    line-height: 1.5;
+    margin-bottom: 8px;
+  }
+  .media-item .media-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .media-item .media-link {
+    font-size: 11px;
+    color: var(--teal);
+    text-decoration: none;
+    opacity: 0.6;
+    word-break: break-all;
+  }
+  .media-item .media-link:hover {
+    opacity: 1;
+  }
+
+  /* ========== SLIDE 5: TV & STAGE ========== */
+  .tv-stage {
+    background: linear-gradient(180deg, #0a0e1a 0%, var(--bg-darker) 100%);
+  }
+  .tv-stage-content {
+    max-width: 1200px;
+    width: 100%;
+    z-index: 2;
+  }
+  .tv-stage-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .tv-stage-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .tv-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .tv-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 16px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    border-left: 2px solid var(--teal);
+  }
+  .tv-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    color: var(--gold);
+    min-width: 50px;
+  }
+  .tv-info .tv-name {
+    font-size: 15px;
+    color: var(--warm-white);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .tv-info .tv-detail {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* ========== SLIDE 6: INTERNATIONAL ========== */
+  .international {
+    background: var(--bg-darker);
+  }
+  .international::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('ppt-images/alice_vr_cctv.png') center/cover no-repeat;
+    opacity: 0.08;
+    z-index: 0;
+  }
+  .international-content {
+    max-width: 1100px;
+    width: 100%;
+    z-index: 2;
+    position: relative;
+  }
+  .international-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .international-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .intl-timeline {
+    position: relative;
+    padding-left: 40px;
+  }
+  .intl-timeline::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border-gold);
+  }
+  .intl-item {
+    position: relative;
+    margin-bottom: 32px;
+  }
+  .intl-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 10px rgba(201,169,110,0.5);
+  }
+  .intl-item .intl-date {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+  }
+  .intl-item .intl-title {
+    font-size: 16px;
+    color: var(--warm-white);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .intl-item .intl-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .intl-item .intl-link {
+    font-size: 11px;
+    color: var(--teal);
+    text-decoration: none;
+    opacity: 0.6;
+    display: inline-block;
+    margin-top: 4px;
+  }
+  .intl-item .intl-link:hover {
+    opacity: 1;
+  }
+
+  /* ========== SLIDE 7: VR PROJECTS ========== */
+  .vr-projects {
+    background: linear-gradient(180deg, var(--bg-darker) 0%, #0a0e1a 100%);
+  }
+  .vr-projects-content {
+    max-width: 1200px;
+    width: 100%;
+    z-index: 2;
+  }
+  .vr-projects-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .vr-projects-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: all 0.3s;
+    padding: 0;
+  }
+  .project-card:hover {
+    border-color: var(--border-gold);
+    transform: translateY(-2px);
+  }
+  .project-card .proj-img {
+    width: 100%;
+    height: 160px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  .project-card .proj-img.proj-placeholder {
+    background: rgba(255,255,255,0.03);
+    border: 1px dashed rgba(201,169,110,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .project-card .proj-img.proj-placeholder::before {
+    content: attr(data-label);
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    color: rgba(201,169,110,0.35);
+    letter-spacing: 2px;
+    z-index: 1;
+  }
+  .project-card .proj-img::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 40px;
+    background: linear-gradient(transparent, var(--card-bg));
+    pointer-events: none;
+  }
+  .project-card .proj-text {
+    padding: 20px 24px;
+  }
+  .project-card .proj-year {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+  }
+  .project-card .proj-title {
+    font-size: 16px;
+    color: var(--warm-white);
+    font-weight: 500;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .project-card .proj-client {
+    font-size: 12px;
+    color: var(--teal);
+    margin-bottom: 8px;
+  }
+  .project-card .proj-link {
+    font-size: 10px;
+    color: var(--text-dim);
+    word-break: break-all;
+    text-decoration: none;
+    opacity: 0.5;
+  }
+  .project-card .proj-link:hover {
+    opacity: 1;
+    color: var(--teal);
+  }
+
+  /* ========== SLIDE 8: BRANDS ========== */
+  .brands {
+    background: var(--bg-darker);
+  }
+  .brands-content {
+    max-width: 1000px;
+    text-align: center;
+    z-index: 2;
+  }
+  .brands-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+  .brands-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 50px;
+  }
+  .brand-categories {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    text-align: left;
+  }
+  .brand-category h3 {
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border-gold);
+  }
+  .brand-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .brand-tag {
+    font-size: 13px;
+    color: var(--gold-light);
+    padding: 7px 16px;
+    border: 1px solid var(--border-gold);
+    border-radius: 2px;
+    background: rgba(201, 169, 110, 0.06);
+    transition: all 0.3s;
+  }
+  .brand-tag:hover {
+    background: rgba(201, 169, 110, 0.15);
+    border-color: var(--gold);
+  }
+
+  /* ========== SLIDE 9: SOCIAL DATA ========== */
+  .social-data {
+    background: linear-gradient(180deg, #0a0e1a 0%, var(--bg-darker) 100%);
+  }
+  .social-content {
+    max-width: 1100px;
+    width: 100%;
+    z-index: 2;
+  }
+  .social-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .social-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .data-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .data-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+  }
+  .data-card .num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .data-card .unit {
+    font-size: 14px;
+    color: var(--text-mid);
+    margin-bottom: 4px;
+  }
+  .data-card .label {
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 2px;
+  }
+  .data-card .source {
+    font-size: 10px;
+    color: var(--teal);
+    opacity: 0.5;
+    margin-top: 6px;
+  }
+  .platform-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+  .platform-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--text-mid);
+  }
+  .platform-item .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+  }
+
+  /* ========== SLIDE 10: SERVICES ========== */
+  .services {
+    background: var(--bg-darker);
+  }
+  .services-content {
+    max-width: 1100px;
+    width: 100%;
+    z-index: 2;
+  }
+  .services-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .services-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .service-card {
+    padding: 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 4px;
+    border-top: 2px solid var(--gold);
+  }
+  .service-card .s-icon {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .service-card .s-title {
+    font-size: 18px;
+    color: var(--warm-white);
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .service-card .s-desc {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.8;
+    margin-bottom: 12px;
+  }
+  .service-card .s-cases {
+    font-size: 12px;
+    color: var(--teal);
+    opacity: 0.7;
+  }
+
+  /* ========== SLIDE 11: WHY ALICE ========== */
+  .why-alice {
+    background: linear-gradient(180deg, var(--bg-darker) 0%, #0a0e1a 100%);
+  }
+  .why-alice::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: url('ppt-images/alice_vr_performance.png') center/cover no-repeat;
+    opacity: 0.12;
+    z-index: 0;
+  }
+  .why-content {
+    max-width: 900px;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+  }
+  .why-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 36px;
+    color: var(--warm-white);
+    margin-bottom: 8px;
+  }
+  .why-content > .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 50px;
+  }
+  .why-list {
+    text-align: left;
+    margin-bottom: 40px;
+  }
+  .why-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--card-border);
+  }
+  .why-item:last-child {
+    border-bottom: none;
+  }
+  .why-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    color: var(--gold);
+    min-width: 40px;
+    opacity: 0.5;
+  }
+  .why-text .wt {
+    font-size: 16px;
+    color: var(--warm-white);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .why-text .wd {
+    font-size: 13px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  /* ========== SLIDE 12: CONTACT ========== */
+  .contact {
+    background: linear-gradient(135deg, #060810 0%, #0a0e1a 50%, #0d1525 100%);
+    flex-direction: column;
+  }
+  .contact-content {
+    text-align: center;
+    z-index: 2;
+  }
+  .contact-content h2 {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 42px;
+    color: var(--warm-white);
+    margin-bottom: 10px;
+  }
+  .contact-content .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 50px;
+  }
+  .contact-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    max-width: 800px;
+  }
+  .contact-item {
+    padding: 16px 30px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-gold);
+    border-radius: 4px;
+    text-align: center;
+  }
+  .contact-item .ci-label {
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 3px;
+    margin-bottom: 6px;
+  }
+  .contact-item .ci-value {
+    font-size: 15px;
+    color: var(--warm-white);
+  }
+  .contact-item .ci-link {
+    font-size: 12px;
+    color: var(--teal);
+    text-decoration: none;
+    opacity: 0.6;
+    word-break: break-all;
+  }
+  .contact-footer {
+    margin-top: 60px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    color: var(--text-dim);
+    letter-spacing: 4px;
+  }
+
+  /* ========== ANIMATIONS ========== */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .slide > * {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    background: rgba(10,14,26,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+  }
+
+  .nav-back {
+    color: #c9a96e;
+    text-decoration: none;
+    font-family: 'Noto Sans SC', sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    transition: color 0.3s;
+  }
+
+  .nav-back:hover {
+    color: #e8d5a8;
+  }
+
+  @media (max-width: 768px) {
+    .nav-bar {
+      padding: 10px 16px;
+    }
+    .nav-back {
+      font-size: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-bar">
+  <a href="https://qiemamaalice.com" class="nav-back">← qiemamaalice.com</a>
+</div>
+
+<!-- ========== SLIDE 1: COVER ========== -->
+<div class="slide cover">
+  <div class="cover-content">
+    <div class="cover-tag">VR Artist Portfolio</div>
+    <h1 class="cover-name">石珊珊</h1>
+    <div class="cover-name-en">Alice.S.Shi</div>
+    <div class="cover-titles">
+      <span class="cover-title-item">VR艺术家</span>
+      <span class="cover-title-item">独立插画师</span>
+      <span class="cover-title-item">插画导师</span>
+      <span class="cover-title-item">企鹅工作室创始人</span>
+    </div>
+    <div class="cover-line"></div>
+    <p class="cover-desc">
+      以虚拟手柄为笔，在三维空间中重构中国传统美学<br>
+      央视春晚 · 联合国大会 · 威尼斯元宇宙展 · 新华社<br>
+      30+ 顶级机构合作 · 3万+ 学员 · 8平台矩阵
+    </p>
+  </div>
+  <div class="slide-num">01 / 12</div>
+</div>
+
+<!-- ========== SLIDE 2: ABOUT ========== -->
+<div class="slide">
+  <div class="slide-label">About the Artist</div>
+  <div class="about-grid">
+    <div class="about-left">
+      <h2>关于艺术家</h2>
+      <div class="subtitle">About Alice.S</div>
+      <p>企鹅妈妈Alice，本名石珊珊，现居北京。毕业于中国传媒大学。从零基础自学绘画，成为大家熟知的插画师。2016年出版轻食畅销书《梅森瓶里的轻食光》，成为生活美学家。</p>
+      <p>2019年接触VR绘画后一发不可收拾，四五年间成为国内VR绘画领域金字塔尖的创作者，合作项目覆盖联合国、央视、湖南卫视等近三十个官方主推项目。</p>
+      <p>她的创作将身体舞蹈韵律融入VR，以中国风为视觉基调，在三维空间中重构水墨意境，实现"人画合一"的视觉表演。</p>
+    </div>
+    <div class="about-right">
+      <div class="info-card">
+        <div class="label">Education</div>
+        <div class="value">中国传媒大学 · 2008级人文学院</div>
+        <div class="source">来源：<a href="https://www.sohu.com/a/905900490_121106842" target="_blank">中国传媒大学校友沙龙 · 搜狐</a></div>
+      </div>
+      <div class="info-card">
+        <div class="label">Published Work</div>
+        <div class="value">《梅森瓶里的轻食光》跨界生活美学畅销书</div>
+        <div class="source">来源：<a href="https://baike.baidu.com/item/%E4%BC%81%E9%B9%85%E5%A6%88%E5%A6%88Alice" target="_blank">百度百科 · 企鹅妈妈Alice词条</a></div>
+      </div>
+      <div class="info-card">
+        <div class="label">Core Identity</div>
+        <div class="value">VR艺术家 / 独立插画师 / 插画导师 / 作者 / 企鹅工作室创始人</div>
+        <div class="source">来源：<a href="http://qiemamaalice.com/hey-alice-alice" target="_blank">官方网站 qiemamaalice.com</a></div>
+      </div>
+      <div class="info-card">
+        <div class="label">Creation Philosophy</div>
+        <div class="value">"打动人心的往往不是图本身，而是图背后的那个人——是他的生命状态和思考过程。"</div>
+        <div class="source">来源：<a href="https://www.sohu.com/a/905900490_121106842" target="_blank">中国传媒大学校友沙龙</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">02 / 12</div>
+</div>
+
+<!-- ========== SLIDE 3: POSITIONING ========== -->
+<div class="slide positioning">
+  <div class="slide-label">Artist Positioning</div>
+  <div class="positioning-content">
+    <h2>艺术家定位</h2>
+    <div class="subtitle">Positioning & Value Proposition</div>
+    <div class="position-tags">
+      <span class="position-tag">国家叙事级VR艺术创作者</span>
+      <span class="position-tag">传统文化×前沿科技的桥梁</span>
+      <span class="position-tag">"人画合一"表演艺术开创者</span>
+      <span class="position-tag">元宇宙艺术国际参展艺术家</span>
+      <span class="position-tag">3万+学员的创作者引路人</span>
+      <span class="position-tag">全球首座NFT认证奖杯创作者</span>
+    </div>
+    <div class="position-quote">
+      <p>"举手投足间带着一种灵动的优雅，在这看似无边无际的VR空间里，只要穿戴好创作装备，她就能化身成那开天的盘古和造人的女娲，她是主宰这个世界万物生灵的'造物主'。"</p>
+      <div class="source">—— 凤凰网/GGAC 专访 · <a href="https://i.ifeng.com/c/8NzLGAlBKha" target="_blank">i.ifeng.com/c/8NzLGAlBKha</a></div>
+    </div>
+  </div>
+  <div class="slide-num">03 / 12</div>
+</div>
+
+<!-- ========== SLIDE 4: MEDIA AUTHORITY ========== -->
+<div class="slide media-authority">
+  <div class="slide-label">Media Coverage</div>
+  <div class="media-authority-content">
+    <h2>权威媒体报道</h2>
+    <div class="subtitle">Authoritative Media Coverage</div>
+    <div class="media-grid">
+      <div class="media-item">
+        <span class="media-source">光明日报</span>
+        <div class="media-title">《咱是观众也是角儿——虚拟现实技术的文化基因》纪录片专访</div>
+        <div class="media-desc">2025年12月30日 · 国家级党媒实地探访VR创作世界，探讨中华优秀传统文化与VR技术深度融合，"观众也是角儿"创作理念</div>
+        <a class="media-link" href="https://app.guangmingdaily.cn/as/opened/n/22f81bbbf006498a86f0a54717d07325" target="_blank">app.guangmingdaily.cn</a>
+      </div>
+      <div class="media-item">
+        <span class="media-source">央视网 CCTV</span>
+        <div class="media-title">2023央视春晚创意节目《当"神兽"遇见神兽》</div>
+        <div class="media-desc">2023年1月22日 · VR绘画：石珊珊，与阿云嘎、杨恩又、洪烈等同台表演。登上中国最高规格晚会舞台</div>
+        <a class="media-link" href="https://tv.cctv.cn/2023/03/20/VIDEqdzT8tQGZkWLm1Z2ktu2230320.shtml" target="_blank">tv.cctv.cn</a>
+      </div>
+      <div class="media-item">
+        <span class="media-source">凤凰网 GGAC</span>
+        <div class="media-title">《VR艺术家企鹅妈妈Alice石珊珊专访|VR绘画商业运用前景无量》</div>
+        <div class="media-desc">2023年3月8日 · 超长深度专访，涵盖VR创作起源、商业前景、创作流程、表演艺术属性、家庭平衡</div>
+        <a class="media-link" href="https://i.ifeng.com/c/8NzLGAlBKha" target="_blank">i.ifeng.com</a>
+      </div>
+      <div class="media-item">
+        <span class="media-source">搜狐 · EST时尚创意</span>
+        <div class="media-title">《石珊珊：默舞VR，绘心绘境共创美好世界》万字深度专题</div>
+        <div class="media-desc">2024年11月15日 · 时尚创意领域权威媒体万字专题，涵盖绘画起源、VR创作、联合国项目、春晚、创作理念</div>
+        <a class="media-link" href="https://www.sohu.com/a/826939966_595008" target="_blank">sohu.com/a/826939966</a>
+      </div>
+      <div class="media-item">
+        <span class="media-source">新浪 · VR陀螺</span>
+        <div class="media-title">《虚拟空间的造梦师——VR绘画艺术家石珊珊访谈》学术访谈</div>
+        <div class="media-desc">北京电影学院博士生杨颖、文化学者林观星撰文的专业学术访谈，探讨VR绘画的视觉营构与美学意境</div>
+        <a class="media-link" href="https://vrtuoluo.cn/540264.html" target="_blank">vrtuoluo.cn/540264</a>
+      </div>
+      <div class="media-item">
+        <span class="media-source">腾讯网 · 中国传媒大学</span>
+        <div class="media-title">校友主题沙龙：《在VR与AI时代，寻找打动人心的创作真义》</div>
+        <div class="media-desc">2025年6月19日 · 母校中国传媒大学邀请作为校友代表回校分享，从技法焦虑到心灵共鸣，VR+AI创作新境</div>
+        <a class="media-link" href="https://www.sohu.com/a/905900490_121106842" target="_blank">sohu.com/a/905900490</a>
+      </div>
+      <div class="media-item">
+        <span class="media-source">扬子晚报</span>
+        <div class="media-title">《VR作画定格冬奥会中国队夺金瞬间，这位插画师有意思》</div>
+        <div class="media-desc">2022年2月 · 冬奥会中国队首金时刻用VR作画纪念，采访涵盖创作理念与MR技术解析</div>
+        <a class="media-link" href="https://k.sina.com.cn/article_1653603955_v628ffe73020019bih.html" target="_blank">k.sina.com.cn</a>
+      </div>
+      <div class="media-item">
+        <span class="media-source">新东方网</span>
+        <div class="media-title">《不亚于AI绘画，VR绘画让"神笔马良"不再是神话？》</div>
+        <div class="media-desc">2023年3月 · 春晚VR绘画出圈报道，引用石珊珊春晚作品作为行业标杆案例</div>
+        <a class="media-link" href="https://www.xdf.cn/690/202303/12924518.html" target="_blank">xdf.cn</a>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">04 / 12</div>
+</div>
+
+<!-- ========== SLIDE 5: TV & STAGE ========== -->
+<div class="slide tv-stage">
+  <div class="slide-label">TV & Stage</div>
+  <div class="tv-stage-content">
+    <h2>电视节目与舞台表演</h2>
+    <div class="subtitle">Television & Stage Performances</div>
+    <div class="tv-list">
+      <div class="tv-item">
+        <div class="tv-year">2023</div>
+        <div class="tv-info">
+          <div class="tv-name">中央广播电视总台春节联欢晚会</div>
+          <div class="tv-detail">创意节目《当"神兽"遇见神兽》VR绘画表演，与阿云嘎等同台 · <a href="https://tv.cctv.cn/2023/03/20/VIDEqdzT8tQGZkWLm1Z2ktu2230320.shtml" target="_blank" style="color:var(--teal);text-decoration:none;opacity:0.6">央视网</a></div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2022</div>
+        <div class="tv-info">
+          <div class="tv-name">中央广播电视总台元宵晚会</div>
+          <div class="tv-detail">《虎步舞》VR绘画开场，与国家级非遗醒狮团"梦幻联动"同框</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2022</div>
+        <div class="tv-info">
+          <div class="tv-name">CCTV-1《开讲啦》（两次参与）</div>
+          <div class="tv-detail">2016年、2025年两次作为青年代表参与 · <a href="https://baike.baidu.com/item/%E7%9F%B3%E7%8F%8A%E7%8F%8A/61909428" target="_blank" style="color:var(--teal);text-decoration:none;opacity:0.6">百度百科</a></div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2022</div>
+        <div class="tv-info">
+          <div class="tv-name">央视《年画画年》</div>
+          <div class="tv-detail">特邀VR画师，与王冰冰共绘凤翔挂虎</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2023</div>
+        <div class="tv-info">
+          <div class="tv-name">湖南卫视跨年晚会</div>
+          <div class="tv-detail">压轴节目《湘韵》VR绘画，与蔡程昱、龚爽同台表演</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2023</div>
+        <div class="tv-info">
+          <div class="tv-name">江苏卫视《新生万物》</div>
+          <div class="tv-detail">杨澜主持 · 非遗焕新纪实节目特邀VR艺术家</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2024</div>
+        <div class="tv-info">
+          <div class="tv-name">河南卫视《艺路生花》</div>
+          <div class="tv-detail">VR艺术家获评委认可，入选参展 · <a href="https://www.sohu.com/a/830182156_120347736" target="_blank" style="color:var(--teal);text-decoration:none;opacity:0.6">搜狐报道</a></div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2024</div>
+        <div class="tv-info">
+          <div class="tv-name">CCTV9纪录片《当法老遇见三星堆》</div>
+          <div class="tv-detail">三星堆主题VR数字艺术创作</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2022</div>
+        <div class="tv-info">
+          <div class="tv-name">浙江卫视《追星星的人2》/《王牌对王牌》</div>
+          <div class="tv-detail">VR画师参与录制，创作VR星空四象</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2022</div>
+        <div class="tv-info">
+          <div class="tv-name">芒果TV《乘风破浪》/《党的女儿》</div>
+          <div class="tv-detail">VR视觉设计</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2025</div>
+        <div class="tv-info">
+          <div class="tv-name">央视汽车风云盛典</div>
+          <div class="tv-detail">VR现场绘画表演</div>
+        </div>
+      </div>
+      <div class="tv-item">
+        <div class="tv-year">2023</div>
+        <div class="tv-info">
+          <div class="tv-name">2023中国网络视听盛典</div>
+          <div class="tv-detail">受邀创作系列VR主视觉</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">05 / 12</div>
+</div>
+
+<!-- ========== SLIDE 6: INTERNATIONAL ========== -->
+<div class="slide international">
+  <div class="slide-label">International</div>
+  <div class="international-content">
+    <h2>国际展览与外交活动</h2>
+    <div class="subtitle">International Exhibitions & Diplomatic Events</div>
+    <div class="intl-timeline">
+      <div class="intl-item">
+        <div class="intl-date">2025.01</div>
+        <div class="intl-title">第三届《元宇宙艺术年度展 @威尼斯》</div>
+        <div class="intl-desc">参展作品《超越画布：VR叙事中的中国意象》。策展人为华人首位女性策展人陆蓉之。以数字艺术为媒，向世界传递中国文化魅力</div>
+        <a class="intl-link" href="https://2024.annualmetaverseart.com/creator/alice-shi/" target="_blank">2024.annualmetaverseart.com/creator/alice-shi</a>
+      </div>
+      <div class="intl-item">
+        <div class="intl-date">2023.10</div>
+        <div class="intl-title">瑞士中国文化节 · 中国驻瑞士大使馆展出</div>
+        <div class="intl-desc">受中国驻瑞士大使馆邀请，VR作品在瑞士中国文化节上于大使馆展出</div>
+      </div>
+      <div class="intl-item">
+        <div class="intl-date">2023.07</div>
+        <div class="intl-title">第二届全球媒体创新论坛</div>
+        <div class="intl-desc">为各国媒体和外交官作VR现场绘画表演</div>
+      </div>
+      <div class="intl-item">
+        <div class="intl-date">2023.09</div>
+        <div class="intl-title">第19届杭州亚运会</div>
+        <div class="intl-desc">受邀为亚运会推广曲《东方色彩》创作VR作品</div>
+      </div>
+      <div class="intl-item">
+        <div class="intl-date">2023.12</div>
+        <div class="intl-title">第五届海南岛国际电影节</div>
+        <div class="intl-desc">受邀绘制VR开场秀</div>
+      </div>
+      <div class="intl-item">
+        <div class="intl-date">2021.10</div>
+        <div class="intl-title">联合国生物多样性大会</div>
+        <div class="intl-desc">受新华社邀请，创作《万物共生的四季长卷》VR水墨长卷画。习近平金句VR绘，中青在线、中国军网引用报道</div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">06 / 12</div>
+</div>
+
+<!-- ========== SLIDE 7: VR PROJECTS ========== -->
+<div class="slide vr-projects">
+  <div class="slide-label">Selected Works</div>
+  <div class="vr-projects-content">
+    <h2>VR代表作品</h2>
+    <div class="subtitle">Selected VR Art Projects</div>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/alice_cctv_stage.png')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2023 · 央视春晚</div>
+        <div class="proj-title">《当"神兽"遇见神兽》</div>
+        <div class="proj-client">中央广播电视总台</div>
+        <a class="proj-link" href="https://tv.cctv.cn/2023/03/20/VIDEqdzT8tQGZkWLm1Z2ktu2230320.shtml" target="_blank">tv.cctv.cn</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/hunan_tv_stage.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2023 · 湖南卫视</div>
+        <div class="proj-title">《湘韵》跨年晚会压轴</div>
+        <div class="proj-client">湖南卫视 · 与蔡程昱同台</div>
+        <a class="proj-link" href="https://i.ifeng.com/c/8MJBEoglFtJ" target="_blank">凤凰网报道</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/lantern_vr.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2022 · 央视元宵晚会</div>
+        <div class="proj-title">《虎步舞》VR绘画开场</div>
+        <div class="proj-client">中央广播电视总台 · 国家级非遗醒狮团联动</div>
+        <a class="proj-link" href="https://www.weibo.com/1748394055/LkEhw77mk" target="_blank">微博视频</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/un_biodiversity.png')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2021 · 联合国</div>
+        <div class="proj-title">《万物共生的四季长卷》</div>
+        <div class="proj-client">新华社邀约 · 联合国生物多样性大会</div>
+        <a class="proj-link" href="https://m.sohu.com/a/826939966_595008" target="_blank">搜狐专访</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/olympics_vr.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2022 · 冬奥会</div>
+        <div class="proj-title">《VR绘画纪念超燃历史时刻》</div>
+        <div class="proj-client">定格中国队首金瞬间 · B站10.1万播放</div>
+        <a class="proj-link" href="https://space.bilibili.com/104870759" target="_blank">space.bilibili.com/104870759</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/pico_birds.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2022 · PICO</div>
+        <div class="proj-title">《小鸟环游世界》</div>
+        <div class="proj-client">PICO 4全球发布会 · 逐帧定格动画</div>
+        <a class="proj-link" href="http://qiemamaalice.com/vr-art-vr" target="_blank">官网作品页</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/silk_road.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2022 · 新华社</div>
+        <div class="proj-title">《丝绸之路》</div>
+        <div class="proj-client">新华社邀约 · 一带一路纪录片</div>
+        <a class="proj-link" href="http://qiemamaalice.com/vr-art-vr" target="_blank">官网作品页</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/nft_unicorn.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2021 · 新浪VR</div>
+        <div class="proj-title">NFT奖杯《独角兽》</div>
+        <div class="proj-client">全球首座NFT认证奖杯 · 总建模面数超100万</div>
+        <a class="proj-link" href="https://t.cj.sina.com.cn/articles/view/2166321755/811f725b0270137a6" target="_blank">t.cj.sina.com.cn</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/ocean_day.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2022 · 新华社</div>
+        <div class="proj-title">《守护蔚蓝》</div>
+        <div class="proj-client">世界海洋日 · 新华社×爱奇艺邀约</div>
+        <a class="proj-link" href="https://world.newssc.org/system/20220608/001274265.html" target="_blank">新华社客户端</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/people_stageshow.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2024 · 人民网</div>
+        <div class="proj-title">《时空绘影》</div>
+        <div class="proj-client">人民网邀约 · 绘画与舞台空间融合</div>
+        <a class="proj-link" href="https://weibo.com/1748394055/5107956131562789" target="_blank">微博视频</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/venice_vr.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2025 · 威尼斯</div>
+        <div class="proj-title">《超越画布：VR叙事中的中国意象》</div>
+        <div class="proj-client">威尼斯元宇宙艺术年度展 · 国际参展</div>
+        <a class="proj-link" href="https://2024.annualmetaverseart.com/creator/alice-shi/" target="_blank">annualmetaverseart.com</a>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="proj-img" style="background-image:url('ppt-images/mercedes_tvc.jpg')"></div>
+        <div class="proj-text">
+        <div class="proj-year">2022 · 奔驰</div>
+        <div class="proj-title">奔驰TVC VR作品</div>
+        <div class="proj-client">梅赛德斯-奔驰 · TVC项目拍摄</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">07 / 12</div>
+</div>
+
+<!-- ========== SLIDE 8: BRANDS ========== -->
+<div class="slide brands">
+  <div class="slide-label">Clients</div>
+  <div class="brands-content">
+    <h2>合作客户</h2>
+    <div class="subtitle">30+ Top-Tier Clients</div>
+    <div class="brand-categories">
+      <div class="brand-category">
+        <h3>国家级媒体与机构</h3>
+        <div class="brand-tags">
+          <span class="brand-tag">中央广播电视总台</span>
+          <span class="brand-tag">新华社</span>
+          <span class="brand-tag">人民日报</span>
+          <span class="brand-tag">央视新闻</span>
+          <span class="brand-tag">新华网</span>
+          <span class="brand-tag">央视频</span>
+          <span class="brand-tag">央视网</span>
+          <span class="brand-tag">光明日报</span>
+          <span class="brand-tag">人民网</span>
+        </div>
+      </div>
+      <div class="brand-category">
+        <h3>科技与互联网</h3>
+        <div class="brand-tags">
+          <span class="brand-tag">字节跳动</span>
+          <span class="brand-tag">PICO</span>
+          <span class="brand-tag">Bilibili</span>
+          <span class="brand-tag">优酷</span>
+          <span class="brand-tag">OPPO</span>
+          <span class="brand-tag">视觉中国</span>
+        </div>
+      </div>
+      <div class="brand-category">
+        <h3>卫视与综艺</h3>
+        <div class="brand-tags">
+          <span class="brand-tag">湖南卫视</span>
+          <span class="brand-tag">浙江卫视</span>
+          <span class="brand-tag">江苏卫视</span>
+          <span class="brand-tag">河南卫视</span>
+          <span class="brand-tag">芒果TV</span>
+        </div>
+      </div>
+      <div class="brand-category">
+        <h3>品牌与商业</h3>
+        <div class="brand-tags">
+          <span class="brand-tag">京东</span>
+          <span class="brand-tag">天猫</span>
+          <span class="brand-tag">奔驰</span>
+          <span class="brand-tag">现代汽车集团</span>
+          <span class="brand-tag">海南航空</span>
+          <span class="brand-tag">上海浦东机场</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:30px;font-size:12px;color:var(--text-dim);text-align:center">
+      来源：<a href="http://qiemamaalice.com/hey-alice-alice" target="_blank" style="color:var(--teal);text-decoration:none;opacity:0.6">官方网站 qiemamaalice.com</a>
+    </div>
+  </div>
+  <div class="slide-num">08 / 12</div>
+</div>
+
+<!-- ========== SLIDE 9: SOCIAL DATA ========== -->
+<div class="slide social-data">
+  <div class="slide-label">Social Media</div>
+  <div class="social-content">
+    <h2>社交媒体矩阵</h2>
+    <div class="subtitle">Social Media Presence & Data</div>
+    <div class="data-row">
+      <div class="data-card">
+        <div class="num">150<span style="font-size:24px">万</span></div>
+        <div class="unit">B站单视频最高播放</div>
+        <div class="label">国潮小狮子</div>
+        <div class="source"><a href="https://space.bilibili.com/104870759" target="_blank" style="color:var(--teal);text-decoration:none">B站验证</a></div>
+      </div>
+      <div class="data-card">
+        <div class="num">73<span style="font-size:24px">万</span></div>
+        <div class="unit">B站单视频播放</div>
+        <div class="label">水墨荷塘</div>
+        <div class="source"><a href="https://space.bilibili.com/104870759" target="_blank" style="color:var(--teal);text-decoration:none">B站验证</a></div>
+      </div>
+      <div class="data-card">
+        <div class="num">3<span style="font-size:24px">万+</span></div>
+        <div class="unit">学员总数</div>
+        <div class="label">零基础插画课</div>
+        <div class="source"><a href="http://qiemamaalice.com/hey-alice-alice" target="_blank" style="color:var(--teal);text-decoration:none">官网</a></div>
+      </div>
+      <div class="data-card">
+        <div class="num">6<span style="font-size:24px">年</span></div>
+        <div class="unit">CCtalk年度优秀网师</div>
+        <div class="label">连续获奖</div>
+        <div class="source"><a href="https://baike.baidu.com/item/%E7%9F%B3%E7%8F%8A%E7%8F%8A/61909428" target="_blank" style="color:var(--teal);text-decoration:none">百度百科</a></div>
+      </div>
+    </div>
+    <div class="platform-list">
+      <div class="platform-item"><span class="dot"></span> B站：Alice的小世界</div>
+      <div class="platform-item"><span class="dot"></span> CCtalk：企鹅妈妈Alice</div>
+      <div class="platform-item"><span class="dot"></span> 微博：@企鹅妈妈Alice</div>
+      <div class="platform-item"><span class="dot"></span> 视频号：企鹅妈妈Alice</div>
+      <div class="platform-item"><span class="dot"></span> 小红书：企鹅妈妈Alice</div>
+      <div class="platform-item"><span class="dot"></span> 公众号：企鹅工作室</div>
+      <div class="platform-item"><span class="dot"></span> 抖音：Alice的小世界</div>
+      <div class="platform-item"><span class="dot"></span> 官网：qiemamaalice.com</div>
+    </div>
+  </div>
+  <div class="slide-num">09 / 12</div>
+</div>
+
+<!-- ========== SLIDE 10: SERVICES ========== -->
+<div class="slide services">
+  <div class="slide-label">Services</div>
+  <div class="services-content">
+    <h2>合作服务项目</h2>
+    <div class="subtitle">Service Offerings</div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="s-icon">01</div>
+        <div class="s-title">VR绘画定制创作</div>
+        <div class="s-desc">根据客户需求，用VR绘画创作定制化作品。可用于个人收藏、个性化礼品、商业使用，获得定制费用或版权费用</div>
+        <div class="s-cases">参考案例：央视春晚、湖南卫视跨年、PICO发布会、奔驰TVC</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">02</div>
+        <div class="s-title">VR现场绘画表演</div>
+        <div class="s-desc">在活动现场进行VR绘画表演，结合身体舞蹈韵律，实现"人画合一"的视觉呈现。适合发布会、晚会、展览开幕式</div>
+        <div class="s-cases">参考案例：全球媒体创新论坛、BIRTV、央视品牌强国工程、海南岛国际电影节</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">03</div>
+        <div class="s-title">VR视觉设计与概念创意</div>
+        <div class="s-desc">为影视拍摄、综艺节目、广告拍摄提供VR视觉设计。可作为场景概念设计、故事板创作、舞美设计工具</div>
+        <div class="s-cases">参考案例：《乘风破浪》《党的女儿》《追星星的人2》《王牌对王牌》</div>
+      </div>
+      <div class="service-card">
+        <div class="s-icon">04</div>
+        <div class="s-title">数字艺术与NFT创作</div>
+        <div class="s-desc">创作数字艺术品、NFT数字藏品。将传统文化符号以VR形式赋予动态互动生命力，适合品牌联名与文化IP</div>
+        <div class="s-cases">参考案例：新浪VR NFT奖杯《独角兽》、天猫×Angry Miao《虎虎生威》</div>
+      </div>
+    </div>
+    <div style="margin-top:30px;text-align:center;font-size:13px;color:var(--text-dim)">
+      具体报价根据需求定制，欢迎沟通探讨
+    </div>
+  </div>
+  <div class="slide-num">10 / 12</div>
+</div>
+
+<!-- ========== SLIDE 11: WHY ALICE ========== -->
+<div class="slide why-alice">
+  <div class="slide-label">Why Alice</div>
+  <div class="why-content">
+    <h2>为什么选择Alice</h2>
+    <div class="subtitle">Why Work With Alice.S</div>
+    <div class="why-list">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-text">
+          <div class="wt">国家叙事级合作经验</div>
+          <div class="wd">央视春晚、联合国大会、冬奥会、亚运会——被最顶级官方机构反复选择的VR艺术家</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-text">
+          <div class="wt">国际艺术舞台认可</div>
+          <div class="wd">威尼斯元宇宙艺术年度展参展、瑞士中国文化节大使馆展出——中国VR艺术的国际名片</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-text">
+          <div class="wt">"人画合一"独创表演形式</div>
+          <div class="wd">将身体舞蹈韵律融入VR创作，兼具舞蹈、音乐、戏剧等表演艺术属性——不是画一幅画，而是一场艺术表演</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-text">
+          <div class="wt">传统文化×前沿科技的桥梁</div>
+          <div class="wd">以中国风为视觉基调，在三维空间中重构水墨意境。光明日报专题纪录片专访，定位为"传统文化数字化代表性艺术家"</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">05</div>
+        <div class="why-text">
+          <div class="wt">学术与行业双重认可</div>
+          <div class="wd">北京电影学院学者撰文访谈、中国传媒大学校友代表、视觉中国签约插画师——兼具学术深度与商业价值</div>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">06</div>
+        <div class="why-text">
+          <div class="wt">自传播属性与破圈能力</div>
+          <div class="wd">B站单视频150万+播放，VR绘画具有强自传播属性，匹配节奏感好的音乐和符合大众审美的主题，可获得巨量传播</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="slide-num">11 / 12</div>
+</div>
+
+<!-- ========== SLIDE 12: CONTACT ========== -->
+<div class="slide contact">
+  <div class="slide-label">Contact</div>
+  <div class="contact-content">
+    <h2>合作联系</h2>
+    <div class="subtitle">Let's Create Together</div>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <div class="ci-label">Official Website</div>
+        <div class="ci-value">qiemamaalice.com</div>
+        <a class="ci-link" href="http://qiemamaalice.com" target="_blank">点击访问</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">Bilibili</div>
+        <div class="ci-value">Alice的小世界</div>
+        <a class="ci-link" href="https://space.bilibili.com/104870759" target="_blank">space.bilibili.com/104870759</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">Weibo</div>
+        <div class="ci-value">@企鹅妈妈Alice</div>
+        <a class="ci-link" href="https://weibo.com/u/133729588" target="_blank">weibo.com/企鹅妈妈Alice</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">WeChat Official</div>
+        <div class="ci-value">企鹅工作室</div>
+        <div class="ci-link" style="cursor:default">公众号ID：qiegzs</div>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">Xiaohongshu</div>
+        <div class="ci-value">企鹅妈妈Alice</div>
+        <a class="ci-link" href="https://www.xiaohongshu.com/search_result?keyword=%E4%BC%81%E9%B9%85%E5%A6%88%E5%A6%88Alice" target="_blank">小红书搜索：企鹅妈妈Alice</a>
+      </div>
+      <div class="contact-item">
+        <div class="ci-label">Email</div>
+        <div class="ci-value">ssscherer@qq.com</div>
+        <a class="ci-link" href="mailto:ssscherer@qq.com">发送邮件</a>
+      </div>
+    </div>
+    <div class="contact-footer">
+      Alice.S © 2025 · VR Artist · Beijing
+    </div>
+  </div>
+  <div class="slide-num">12 / 12</div>
+</div>
+
+<script>
+// 自动向父窗口发送页面高度，用于iframe嵌入时自适应高度
+function sendHeight() {
+  var height = Math.max(
+    document.body.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.scrollHeight,
+    document.documentElement.offsetHeight
+  );
+  parent.postMessage({ type: 'aliceVrHeight', height: height }, '*');
+}
+window.addEventListener('load', function() {
+  sendHeight();
+  setTimeout(sendHeight, 500);
+  setTimeout(sendHeight, 2000);
+});
+window.addEventListener('resize', sendHeight);
+// MutationObserver 监听内容变化
+if (typeof MutationObserver !== 'undefined') {
+  var observer = new MutationObserver(sendHeight);
+  observer.observe(document.body, { childList: true, subtree: true, attributes: true });
+}
+
+// 媒体卡片整体可点击
+document.querySelectorAll('.media-item').forEach(function(item) {
+  item.addEventListener('click', function(e) {
+    if (e.target.tagName === 'A') return;
+    var link = item.querySelector('.media-link');
+    if (link) window.open(link.href, '_blank');
+  });
+});
+
+// VR项目卡片整体可点击
+document.querySelectorAll('.project-card').forEach(function(card) {
+  var link = card.querySelector('.proj-link');
+  if (link) {
+    card.style.cursor = 'pointer';
+    card.addEventListener('click', function(e) {
+      if (e.target.tagName === 'A') return;
+      window.open(link.href, '_blank');
+    });
+  }
+});
+</script>
+</body>
+</html>
