@@ -54,6 +54,7 @@
   }
 
   .slide-label {
+    display: none;
     position: absolute;
     top: 40px;
     left: 80px;
@@ -1005,6 +1006,13 @@
       padding: 6px 14px;
       letter-spacing: 2px;
     }
+    .cover-desc {
+      font-size: 12px;
+      letter-spacing: 1px;
+      max-width: 100%;
+      line-height: 1.9;
+      padding: 0 4px;
+    }
     .cover-quote {
       font-size: 13px;
       padding: 0 10px;
@@ -1081,6 +1089,25 @@
     .award-card .award-title {
       font-size: 15px;
     }
+    .tv-list {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .tv-item {
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 18px;
+    }
+    .tv-year {
+      font-size: 16px;
+      min-width: 0;
+    }
+    .tv-info .tv-name {
+      font-size: 14px;
+    }
+    .tv-info .tv-detail {
+      font-size: 12px;
+    }
     .stats-grid {
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
@@ -1102,10 +1129,11 @@
     }
     .platform-list {
       gap: 8px;
+      justify-content: flex-start;
     }
     .platform-item {
-      padding: 8px 16px;
-      font-size: 13px;
+      padding: 8px 14px;
+      font-size: 12px;
     }
     .media-grid {
       grid-template-columns: 1fr;
@@ -1123,17 +1151,46 @@
     .contact-info {
       gap: 16px;
     }
+    .service-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .service-card {
+      padding: 24px 20px;
+    }
+    .service-card .s-title {
+      font-size: 16px;
+      white-space: nowrap;
+    }
+    .service-card .s-desc {
+      font-size: 13px;
+    }
+    .service-card .s-cases {
+      font-size: 11px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      max-width: 100%;
+    }
     .contact-item {
-      padding: 16px 18px;
+      padding: 14px 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
     .contact-item .ci-label {
-      font-size: 11px;
+      font-size: 10px;
+      letter-spacing: 2px;
     }
     .contact-item .ci-value {
-      font-size: 15px;
+      font-size: 13px;
     }
     .contact-item .ci-link {
-      font-size: 11px;
+      font-size: 10px;
     }
     .closing-text {
       font-size: 14px;
@@ -1317,8 +1374,8 @@
       <div class="tv-item">
         <div class="tv-year">2022</div>
         <div class="tv-info">
-          <div class="tv-name">CCTV-1《开讲啦》（两次参与）</div>
-          <div class="tv-detail">2016年、2025年两次作为青年代表参与 · <a href="https://baike.baidu.com/item/%E7%9F%B3%E7%8F%8A%E7%8F%8A/61909428" target="_blank" style="color:var(--teal);text-decoration:none;opacity:0.6">百度百科</a></div>
+          <div class="tv-name">CCTV-1《开讲啦》（四次参与）</div>
+          <div class="tv-detail">四次作为青年代表参与 · <a href="https://baike.baidu.com/item/%E7%9F%B3%E7%8F%8A%E7%8F%8A/61909428" target="_blank" style="color:var(--teal);text-decoration:none;opacity:0.6">百度百科</a></div>
         </div>
       </div>
       <div class="tv-item">
@@ -1646,7 +1703,6 @@
     </div>
     <div class="platform-list">
       <div class="platform-item"><span class="dot"></span> B站：Alice的小世界</div>
-      <div class="platform-item"><span class="dot"></span> CCtalk：企鹅妈妈Alice</div>
       <div class="platform-item"><span class="dot"></span> 微博：@企鹅妈妈Alice</div>
       <div class="platform-item"><span class="dot"></span> 视频号：企鹅妈妈Alice</div>
       <div class="platform-item"><span class="dot"></span> 小红书：企鹅妈妈Alice</div>
